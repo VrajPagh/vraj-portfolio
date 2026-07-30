@@ -1,171 +1,3 @@
-
-Today 4:26 PM
-
-bot_proto_1.jpg
-compeitition_bot_CAD_1.jpg
-completed_comp_bot_1_3_stage_score_mechnism.jpg
-completed_comp_bot_1_intake_stage_2.jpg
-completed_comp_bot_1_mid_goal_image.jpg
-completed_comp_bot_1_odometry_pods.jpg
-coompleted_comp_bot_1_mid_goal_piston_scorer.jpg
-intake_proto_2.jpg
-drive_proto(1).jpg
-matchloader_scraper_1.jpg
-matchloader_scraper_1_image_2.jpg
-proto_1.jpg
-the image files r all named os u know how to ditiguish them give some contex based on ur knowledge of push back based of the image names. also breifly provide an image and explain the game at the start of the port folio for eahc section
-
-this is the compelted robot 
-
-Absolutely. Do a Find & Replace in projects/push-back.html using this list.
-
-Find	Replace
-final-robot.jpg	pushback.jpg
-drive-prototype.jpg	drive_proto.jpg
-early-prototype.jpg	proto_1.jpg
-prototype-detail.jpg	bot_proto_1.jpg
-competition-cad.jpg	compeitition_bot_CAD_1.jpg
-intake-prototype.jpg	intake_proto_2.jpg
-stage-two-conveyor.jpg	completed_comp_bot_1_intake_stage_2.jpg
-three-stage-scoring.jpg	completed_comp_bot_1_3_stage_score_mechnism.jpg
-mid-goal-test.jpg	completed_comp_bot_1_mid_goal_image.jpg
-mid-goal-piston.jpg	coompleted_comp_bot_1_mid_goal_piston_scorer.jpg
-odometry-pods.jpg	completed_comp_bot_1_odometry_pods.jpg
-match-loader-scraper.jpg	matchloader_scraper_1.jpg
-match-loader-scraper-detail.jpg	matchloader_scraper_1_image_2.jpg
-Every image path should still start with:
-
-../assets/images/push-back/
-For example:
-
-<img src="../assets/images/push-back/pushback.jpg">
-<img src="../assets/images/push-back/drive_proto.jpg">
-<img src="../assets/images/push-back/proto_1.jpg">
-<img src="../assets/images/push-back/compeitition_bot_CAD_1.jpg">
-<img src="../assets/images/push-back/intake_proto_2.jpg">
-<img src="../assets/images/push-back/completed_comp_bot_1_intake_stage_2.jpg">
-<img src="../assets/images/push-back/completed_comp_bot_1_3_stage_score_mechnism.jpg">
-<img src="../assets/images/push-back/completed_comp_bot_1_mid_goal_image.jpg">
-<img src="../assets/images/push-back/coompleted_comp_bot_1_mid_goal_piston_scorer.jpg">
-<img src="../assets/images/push-back/completed_comp_bot_1_odometry_pods.jpg">
-<img src="../assets/images/push-back/matchloader_scraper_1.jpg">
-<img src="../assets/images/push-back/matchloader_scraper_1_image_2.jpg">
-Even easier
-If you upload your current projects/push-back.html file here, I'll edit all of the image paths for you and send back a corrected version that you can upload directly to GitHub. That way you won't have to make the replacements manually.
-
-
-
-Pasted text(2).txt
-Document
-
-I updated the image names to match the filenames you uploaded. In your push-back.html, replace these image references:
-
-Replace this	With this
-final-robot.jpg	pushback.jpg
-mid-goal-test.jpg	completed_comp_bot_1_mid_goal_image.jpg
-drive-prototype.jpg	drive_proto.jpg
-early-prototype.jpg	proto_1.jpg
-competition-cad.jpg	compeitition_bot_CAD_1.jpg
-intake-prototype.jpg	intake_proto_2.jpg
-stage-two-conveyor.jpg	completed_comp_bot_1_intake_stage_2.jpg
-three-stage-scoring.jpg	completed_comp_bot_1_3_stage_score_mechnism.jpg
-mid-goal-piston.jpg	coompleted_comp_bot_1_mid_goal_piston_scorer.jpg
-match-loader-scraper.jpg	matchloader_scraper_1.jpg
-prototype-detail.jpg	bot_proto_1.jpg
-match-loader-scraper-detail.jpg	matchloader_scraper_1_image_2.jpg
-odometry-pods.jpg	completed_comp_bot_1_odometry_pods.jpg
-These are the only filename changes needed based on the HTML you uploaded. 
-
-
-If the images still don't appear
-Then the issue is not the filenames. It's almost certainly one of these:
-
-The images are not actually inside:
-
-assets/images/push-back/
-The folder is named something like:
-
-assets/images/Push-Back/
-or
-
-assets/images/pushback/
-instead of exactly:
-
-assets/images/push-back/
-The page hasn't updated on GitHub Pages yet.
-
-Fastest way to solve it
-Send me either:
-
-a screenshot of your GitHub repository showing the assets/images/push-back folder, or
-
-your GitHub repository link (https://github.com/...).
-
-I can usually spot the issue in under a minute.
-
-
-js give me the entire push back html updated please
-
-Done! I updated the HTML so it uses your uploaded image filenames.
-
-You can download it here:
-
-push-back.html
-
-This version uses:
-
-pushback.jpg
-
-drive_proto.jpg
-
-proto_1.jpg
-
-bot_proto_1.jpg
-
-compeitition_bot_CAD_1.jpg
-
-intake_proto_2.jpg
-
-completed_comp_bot_1_intake_stage_2.jpg
-
-completed_comp_bot_1_3_stage_score_mechnism.jpg
-
-completed_comp_bot_1_mid_goal_image.jpg
-
-coompleted_comp_bot_1_mid_goal_piston_scorer.jpg
-
-completed_comp_bot_1_odometry_pods.jpg
-
-matchloader_scraper_1.jpg
-
-matchloader_scraper_1_image_2.jpg
-
-Replace your current projects/push-back.html with this file.
-
-If the images still don't display after uploading this version, then the problem is not the HTML—it's almost certainly that the images are in the wrong folder. In that case, send me a screenshot of your repository's assets/images/push-back folder, and I'll pinpoint the issue. 
-
-
-
-push-back.html
-HTML
-
-
-
-Library
-/
-push-back.html
-
-
-
-
-
-Library
-/
-push-back.html
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -749,7 +581,7 @@ push-back.html
       <div class="hero-card">
         <img
           class="hero-image"
-          src="../assets/images/push-back/pushback.jpg"
+          src="../assets/images/push-back/completed_comp_bot_1_3_stage_score_mechnism.jpg"
           alt="Completed Push Back competition robot"
         >
 
@@ -858,7 +690,7 @@ push-back.html
           <article class="timeline-row reveal">
             <div class="timeline-image">
               <img
-                src="../assets/images/push-back/drive_proto.jpg"
+                src="../assets/images/push-back/drive_proto(1).jpg"
                 alt="Early Push Back drivetrain prototype"
               >
             </div>
@@ -1067,7 +899,7 @@ push-back.html
 
         <div class="final-wrap reveal">
           <img
-            src="../assets/images/push-back/pushback.jpg"
+            src="../assets/images/push-back/completed_comp_bot_1_3_stage_score_mechnism.jpg"
             alt="Completed Push Back competition robot"
           >
 
