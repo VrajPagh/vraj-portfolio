@@ -3,27 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Vraj Paghdal | Engineering Portfolio</title>
+
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <h1>Vraj Paghdal</h1>
 
-  <p>Mechanical Engineering Student | Robotics Designer | Programmer</p>
+  <nav class="navbar">
+    <a class="logo" href="#">VP</a>
 
-  <img
-    src="assets/images/IMG_2239.jpg"
-    alt="Final VEX competition robot"
-  >
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-  <p>
-    I design, build, program, and test competitive robotics systems.
-    Explore my engineering process, prototypes, and final designs.
-  </p>
+  <main>
 
-  <a href="projects/high-stakes.html">
-    View High Stakes Project
-  </a>
+    <section class="hero">
+      <div class="hero-content reveal">
+        <p class="eyebrow">Mechanical Engineering • Robotics • Programming</p>
+
+        <h1>
+          Hi, I'm <span>Vraj Paghdal.</span>
+        </h1>
+
+        <p class="hero-description">
+          I design, build, program, and test competitive robots while using
+          engineering principles to turn ideas into reliable systems.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button primary-button" href="#projects">
+            View My Projects
+          </a>
+
+          <a class="button secondary-button" href="#contact">
+            Contact Me
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-image reveal">
+        <div class="image-glow"></div>
+
+        <img
+          src="assets/images/IMG_2239.jpg"
+          alt="Vraj Paghdal's final VEX competition robot"
+        >
+      </div>
+    </section>
+
+    <section id="about" class="section reveal">
+      <p class="section-label">About Me</p>
+
+      <h2>Engineering through iteration</h2>
+
+      <p class="section-text">
+        I am a mechanical engineering student interested in robotics,
+        mechanical design, CAD, programming, and autonomous systems. Through
+        VEX Robotics, I have worked on multiple robot prototypes, tested
+        mechanisms, programmed autonomous routines, and competed at major
+        events.
+      </p>
+    </section>
+
+    <section id="projects" class="section">
+      <p class="section-label reveal">Featured Work</p>
+
+      <h2 class="reveal">Projects</h2>
+
+      <div class="project-grid">
+
+        <article class="project-card reveal">
+          <div class="project-image">
+            <img
+              src="assets/images/IMG_2239.jpg"
+              alt="High Stakes competition robot"
+            >
+          </div>
+
+          <div class="project-content">
+            <p class="project-number">01</p>
+
+            <h3>VEX High Stakes Robot</h3>
+
+            <p>
+              A complete competitive robotics project covering prototyping,
+              mechanism development, testing, programming, and final
+              competition performance.
+            </p>
+
+            <a href="projects/high-stakes.html">
+              View Case Study →
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <p class="section-label reveal">Technical Skills</p>
+
+      <h2 class="reveal">What I work with</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-card reveal">
+          <h3>Mechanical Design</h3>
+          <p>Robot design, prototyping, testing, fabrication, and iteration.</p>
+        </div>
+
+        <div class="skill-card reveal">
+          <h3>Programming</h3>
+          <p>C++, PROS, autonomous routines, sensors, and motion control.</p>
+        </div>
+
+        <div class="skill-card reveal">
+          <h3>CAD</h3>
+          <p>3D modeling, mechanism design, assemblies, and design analysis.</p>
+        </div>
+
+        <div class="skill-card reveal">
+          <h3>Leadership</h3>
+          <p>Project coordination, fundraising, outreach, and team leadership.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section reveal">
+      <p class="section-label">Get In Touch</p>
+
+      <h2>Let's build something.</h2>
+
+      <p>
+        I am interested in engineering internships, robotics projects, and
+        opportunities to collaborate.
+      </p>
+
+      <a class="button primary-button" href="mailto:youremail@example.com">
+        Email Me
+      </a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Vraj Paghdal</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
