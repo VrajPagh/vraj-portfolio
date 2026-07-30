@@ -361,6 +361,179 @@
     .content-card:hover img { transform: scale(1.045); }
     .card-copy { padding: 28px; }
 
+
+    .mid-season-hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      min-height: 620px;
+      display: flex;
+      align-items: flex-end;
+      isolation: isolate;
+      margin-bottom: 34px;
+    }
+
+    .mid-season-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(4,7,13,.96) 0%, rgba(4,7,13,.58) 48%, rgba(4,7,13,.06) 100%);
+      z-index: -1;
+    }
+
+    .mid-season-hero img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -2;
+    }
+
+    .mid-season-hero-copy {
+      padding: clamp(28px, 6vw, 64px);
+      max-width: 820px;
+    }
+
+    .mid-season-hero-copy h3 {
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -.045em;
+      margin: 10px 0 16px;
+    }
+
+    .mid-season-hero-copy p {
+      color: #d4dbea;
+      font-size: 1.05rem;
+    }
+
+    .mid-season-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .mid-season-feature {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(145deg, var(--panel), var(--panel-2));
+    }
+
+    .mid-season-feature img {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .mid-season-feature-copy {
+      padding: 28px;
+    }
+
+    .mid-season-feature-copy h3 {
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .mid-season-feature-copy p {
+      color: var(--muted);
+    }
+
+    .auton-card {
+      margin-top: 34px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(145deg, var(--panel), var(--panel-2));
+    }
+
+    .auton-card video {
+      display: block;
+      width: 100%;
+      max-height: 720px;
+      background: #000;
+    }
+
+    .auton-copy {
+      padding: clamp(28px, 5vw, 48px);
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .auton-stat {
+      font-size: clamp(4rem, 10vw, 7rem);
+      line-height: .8;
+      letter-spacing: -.06em;
+      font-weight: 850;
+      color: var(--accent-2);
+    }
+
+    .auton-copy h3 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .auton-copy p {
+      color: var(--muted);
+    }
+
+    .mid-results {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .mid-result {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,.035);
+    }
+
+    .mid-result strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 5px;
+    }
+
+    .mid-result span {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .captioned-gallery {
+      columns: 3 280px;
+      column-gap: 18px;
+      margin-top: 34px;
+    }
+
+    .captioned-gallery figure {
+      break-inside: avoid;
+      margin: 0 0 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--panel);
+    }
+
+    .captioned-gallery img {
+      width: 100%;
+      display: block;
+    }
+
+    .captioned-gallery figcaption {
+      padding: 14px 16px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
     .final-wrap {
       position: relative;
       overflow: hidden;
@@ -511,7 +684,10 @@
       }
 
       .mechanism-grid,
-      .results-grid {
+      .results-grid,
+      .mid-season-grid,
+      .mid-results,
+      .auton-copy {
         grid-template-columns: 1fr;
       }
 
@@ -571,6 +747,7 @@
         <a href="#challenge">Challenge</a>
         <a href="#process">Process</a>
         <a href="#mechanisms">Mechanisms</a>
+        <a href="#mid-season">Mid Season</a>
         <a href="#results">Results</a>
       </div>
     </div>
@@ -882,11 +1059,211 @@
       </div>
     </section>
 
+
+    <section id="mid-season">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">04 · Mid Season</p>
+            <h2>From prototype to proven competition robot</h2>
+          </div>
+
+          <p class="lead">
+            By mid-season, the early concepts had evolved into a reliable
+            competition platform. The redesign focused on higher scoring
+            throughput, better mechanism consistency, easier service access,
+            and autonomous performance that could hold up under tournament pressure.
+          </p>
+        </div>
+
+        <div class="mid-season-hero reveal">
+          <img
+            src="../assets/images/push-back/robot_with_awards_displayed.jpg"
+            alt="Mid-season Push Back robot displayed with tournament and robot skills awards"
+          >
+
+          <div class="mid-season-hero-copy">
+            <p class="section-label">Competition validation</p>
+            <h3>Mid-Season Robot and Awards</h3>
+            <p>
+              This version of the robot converted months of testing into measurable
+              results. It earned tournament and robot-skills recognition while
+              serving as the platform for our highest-scoring autonomous skills run.
+            </p>
+          </div>
+        </div>
+
+        <div class="mid-season-grid">
+          <article class="mid-season-feature reveal">
+            <img
+              src="../assets/images/push-back/mid_season_robot(1).jpg"
+              alt="Mid-season Push Back competition robot"
+            >
+
+            <div class="mid-season-feature-copy">
+              <p class="step">Complete redesign</p>
+              <h3>Competition-ready integration</h3>
+              <p>
+                The mid-season rebuild brought the intake, conveyor, storage path,
+                scoring system, pneumatics, and drivetrain together into a more
+                reliable package. The robot was designed around fast object flow,
+                repeated match use, and rapid repairs between rounds.
+              </p>
+            </div>
+          </article>
+
+          <article class="mid-season-feature reveal">
+            <img
+              src="../assets/images/push-back/IMG_6719.jpg"
+              alt="Three-stage conveyor and chain-driven object transport system"
+            >
+
+            <div class="mid-season-feature-copy">
+              <p class="step">Object transport</p>
+              <h3>Three-stage conveyor</h3>
+              <p>
+                Multiple chain-driven stages maintained contact with game objects
+                as they moved from intake to scoring. The system was refined to
+                improve spacing, reduce jams, and allow rapid processing of
+                several objects during a match.
+              </p>
+            </div>
+          </article>
+
+          <article class="mid-season-feature reveal">
+            <img
+              src="../assets/images/push-back/IMG_4027.jpg"
+              alt="Close-up of the pneumatic mid-goal scoring mechanism"
+            >
+
+            <div class="mid-season-feature-copy">
+              <p class="step">Pneumatic mechanism</p>
+              <h3>Fast mid-goal deployment</h3>
+              <p>
+                A pneumatic actuator powered the mid-goal mechanism, creating a
+                fast and repeatable motion without adding another continuously
+                driven motor. The linkage and polycarbonate guides were adjusted
+                to improve alignment and release consistency.
+              </p>
+            </div>
+          </article>
+
+          <article class="mid-season-feature reveal">
+            <img
+              src="../assets/images/push-back/IMG_4022.jpg"
+              alt="Rear view showing motors, batteries, gearing, and internal packaging"
+            >
+
+            <div class="mid-season-feature-copy">
+              <p class="step">Internal packaging</p>
+              <h3>Serviceability and weight distribution</h3>
+              <p>
+                Batteries, motors, pneumatics, gearing, and wiring were packaged
+                inside a compact frame while remaining accessible for maintenance.
+                This layout supported consistent handling and allowed damaged or
+                loose components to be reached quickly during tournament days.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="auton-card reveal">
+          <video
+            controls
+            preload="metadata"
+            poster="../assets/images/push-back/robot_with_awards_displayed.jpg"
+          >
+            <source
+              src="../assets/videos/push-back/IMG_4607.mp4"
+              type="video/mp4"
+            >
+            <source
+              src="../assets/videos/push-back/IMG_4607.MOV"
+              type="video/quicktime"
+            >
+            Your browser does not support embedded video.
+          </video>
+
+          <div class="auton-copy">
+            <div>
+              <div class="auton-stat">93</div>
+              <p class="step">Autonomous skills points</p>
+            </div>
+
+            <div>
+              <h3>U.S. Open record autonomous run</h3>
+              <p>
+                This autonomous skills routine scored 93 points, the highest
+                autonomous skills score recorded at the CREATE U.S. Open
+                tournament. The run depended on reliable odometry, repeatable
+                drive motion, carefully timed mechanisms, and extensive testing
+                of every transition in the route.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mid-results">
+          <div class="mid-result reveal">
+            <strong>Tournament Champion</strong>
+            <span>Competition performance under elimination pressure</span>
+          </div>
+
+          <div class="mid-result reveal">
+            <strong>Robot Skills Champion</strong>
+            <span>Combined driver and autonomous execution</span>
+          </div>
+
+          <div class="mid-result reveal">
+            <strong>93-Point Autonomous</strong>
+            <span>Highest autonomous skills run at the U.S. Open</span>
+          </div>
+
+          <div class="mid-result reveal">
+            <strong>Division Finalist</strong>
+            <span>CREATE U.S. Open</span>
+          </div>
+        </div>
+
+        <div class="captioned-gallery reveal">
+          <figure>
+            <img
+              src="../assets/images/push-back/IMG_6719.jpg"
+              alt="Mid-season robot in the tournament pit"
+            >
+            <figcaption>
+              Tournament pit view showing the complete chain-driven scoring system.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../assets/images/push-back/IMG_4027.jpg"
+              alt="Pneumatic mechanism and polycarbonate guide detail"
+            >
+            <figcaption>
+              Pneumatic linkage and polycarbonate guide geometry used for mid-goal scoring.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../assets/images/push-back/IMG_4022.jpg"
+              alt="Rear internal packaging of the mid-season robot"
+            >
+            <figcaption>
+              Rear packaging showing the drivetrain gearing, batteries, motors, and electronics.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section id="final">
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="section-label">04 · Final Robot</p>
+            <p class="section-label">05 · Final Robot</p>
             <h2>The integrated design</h2>
           </div>
 
@@ -920,7 +1297,7 @@
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="section-label">05 · Results</p>
+            <p class="section-label">06 · Results</p>
             <h2>Measured by competition</h2>
           </div>
 
@@ -969,7 +1346,7 @@
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="section-label">06 · Reflection</p>
+            <p class="section-label">07 · Reflection</p>
             <h2>What the season taught me</h2>
           </div>
 
