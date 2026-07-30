@@ -1,1 +1,1129 @@
+from pathlib import Path
+import shutil, zipfile
 
+base = Path("/mnt/data/push-back-portfolio")
+img_dir = base / "assets" / "images" / "push-back"
+proj_dir = base / "projects"
+img_dir.mkdir(parents=True, exist_ok=True)
+proj_dir.mkdir(parents=True, exist_ok=True)
+
+sources = {
+    "final-robot.jpg": "/mnt/data/completed comp robot 1.jpg",
+    "drive-prototype.jpg": "/mnt/data/drive_proto(1).jpg",
+    "early-prototype.jpg": "/mnt/data/proto_1.jpg",
+    "prototype-detail.jpg": "/mnt/data/bot_proto_1.jpg",
+    "competition-cad.jpg": "/mnt/data/compeitition_bot_CAD_1.jpg",
+    "intake-prototype.jpg": "/mnt/data/intake_proto_2.jpg",
+    "stage-two-conveyor.jpg": "/mnt/data/completed_comp_bot_1_intake_stage_2.jpg",
+    "three-stage-scoring.jpg": "/mnt/data/completed_comp_bot_1_3_stage_score_mechnism.jpg",
+    "mid-goal-test.jpg": "/mnt/data/completed_comp_bot_1_mid_goal_image.jpg",
+    "mid-goal-piston.jpg": "/mnt/data/coompleted_comp_bot_1_mid_goal_piston_scorer.jpg",
+    "odometry-pods.jpg": "/mnt/data/completed_comp_bot_1_odometry_pods.jpg",
+    "match-loader-scraper.jpg": "/mnt/data/matchloader_scraper_1.jpg",
+    "match-loader-scraper-detail.jpg": "/mnt/data/matchloader_scraper_1_image_2.jpg",
+}
+
+missing = []
+for new_name, src in sources.items():
+    src_path = Path(src)
+    if src_path.exists():
+        shutil.copy2(src_path, img_dir / new_name)
+    else:
+        missing.append(src)
+
+html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Push Back VEX Robotics engineering case study by Vraj Paghdal.">
+  <title>Push Back | Vraj Paghdal</title>
+
+  <style>
+    :root {
+      --bg: #070a12;
+      --panel: #0e1421;
+      --panel-2: #141d2d;
+      --text: #f7f9fc;
+      --muted: #a8b2c3;
+      --accent: #5ea1ff;
+      --accent-2: #8cc8ff;
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 30px 90px rgba(0,0,0,.45);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(55,130,255,.16), transparent 32rem),
+        radial-gradient(circle at 10% 45%, rgba(70,180,255,.08), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img { display: block; width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      background: rgba(7,10,18,.72);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      font-weight: 800;
+      transition: .3s ease;
+    }
+
+    .logo:hover {
+      transform: rotate(8deg) scale(1.06);
+      border-color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .nav-links a { transition: color .25s ease; }
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      align-items: end;
+      padding: 130px 0 70px;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 76vh;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(4,7,13,.96) 0%, rgba(4,7,13,.70) 42%, rgba(4,7,13,.12) 72%);
+      z-index: -1;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -2;
+      transform: scale(1.06);
+      animation: heroZoom 12s ease-out forwards;
+    }
+
+    .hero-content {
+      max-width: 680px;
+      padding: clamp(32px, 7vw, 80px);
+      align-self: end;
+    }
+
+    .eyebrow,
+    .section-label {
+      color: var(--accent-2);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(4rem, 11vw, 8rem);
+      line-height: .88;
+      letter-spacing: -.07em;
+      margin: 18px 0 24px;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+      color: #d4dbea;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .tag {
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      color: #dbe7f8;
+      font-size: .85rem;
+    }
+
+    .scroll-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .scroll-cue span { animation: bounce 1.6s infinite; }
+
+    section {
+      padding: 110px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 40px;
+      margin-bottom: 52px;
+      align-items: start;
+    }
+
+    h2 {
+      font-size: clamp(2.6rem, 6vw, 5.2rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      margin-top: 10px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 760px;
+    }
+
+    .game-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(145deg, var(--panel), var(--panel-2));
+    }
+
+    .game-card img {
+      height: 100%;
+      min-height: 430px;
+      object-fit: cover;
+    }
+
+    .game-copy {
+      padding: clamp(30px, 6vw, 62px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .game-copy h3,
+    .content-card h3,
+    .timeline-copy h3 {
+      font-size: clamp(1.7rem, 3vw, 2.45rem);
+      line-height: 1.12;
+      margin-bottom: 16px;
+    }
+
+    .game-copy p,
+    .content-card p,
+    .timeline-copy p {
+      color: var(--muted);
+    }
+
+    .goals-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .goal {
+      padding: 17px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: rgba(255,255,255,.035);
+    }
+
+    .goal strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .goal span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .timeline { position: relative; }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(var(--accent), transparent);
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      margin-bottom: 100px;
+      position: relative;
+    }
+
+    .timeline-row:nth-child(even) .timeline-image { order: 2; }
+    .timeline-row:nth-child(even) .timeline-copy { order: 1; }
+
+    .timeline-row::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 7px rgba(94,161,255,.13);
+      transform: translate(-50%,-50%);
+    }
+
+    .timeline-image {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--panel);
+      box-shadow: 0 20px 55px rgba(0,0,0,.28);
+    }
+
+    .timeline-image img {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: transform .8s ease;
+    }
+
+    .timeline-image:hover img { transform: scale(1.055); }
+
+    .step {
+      color: var(--accent-2);
+      font-weight: 800;
+      letter-spacing: .13em;
+      font-size: .78rem;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .decision {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--accent);
+      background: rgba(94,161,255,.07);
+      color: #d9e7f8;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .mechanism-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .content-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(145deg, var(--panel), var(--panel-2));
+      transition: transform .35s ease, border-color .35s ease;
+    }
+
+    .content-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(94,161,255,.55);
+    }
+
+    .content-card img {
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      transition: transform .65s ease;
+    }
+
+    .content-card:hover img { transform: scale(1.045); }
+    .card-copy { padding: 28px; }
+
+    .final-wrap {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .final-wrap img {
+      max-height: 820px;
+      object-fit: cover;
+    }
+
+    .final-caption {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 18px;
+      background: rgba(6,9,16,.78);
+      backdrop-filter: blur(14px);
+    }
+
+    .final-caption h3 {
+      font-size: 1.8rem;
+      margin-bottom: 7px;
+    }
+
+    .final-caption p {
+      color: #c8d0de;
+      max-width: 850px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .result {
+      min-height: 170px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255,255,255,.035);
+      transition: transform .3s ease, background .3s ease;
+    }
+
+    .result:hover {
+      transform: translateY(-6px);
+      background: rgba(94,161,255,.08);
+    }
+
+    .result strong {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .result span { color: var(--muted); }
+
+    .gallery {
+      columns: 3 280px;
+      column-gap: 18px;
+    }
+
+    .gallery img {
+      margin-bottom: 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      break-inside: avoid;
+      transition: transform .35s ease, filter .35s ease;
+    }
+
+    .gallery img:hover {
+      transform: translateY(-4px);
+      filter: brightness(1.08);
+    }
+
+    .back-link {
+      display: inline-flex;
+      margin-top: 34px;
+      padding: 13px 18px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--muted);
+      transition: .25s ease;
+    }
+
+    .back-link:hover {
+      color: white;
+      border-color: var(--accent);
+      transform: translateX(-4px);
+    }
+
+    footer {
+      padding: 42px 20px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(44px);
+      transition: opacity .85s ease, transform .85s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes heroZoom {
+      to { transform: scale(1); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    @media (max-width: 850px) {
+      .section-heading,
+      .game-card,
+      .timeline-row {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before,
+      .timeline-row::after {
+        display: none;
+      }
+
+      .timeline-row,
+      .timeline-row:nth-child(even) .timeline-image,
+      .timeline-row:nth-child(even) .timeline-copy {
+        order: initial;
+      }
+
+      .timeline-row {
+        gap: 26px;
+        margin-bottom: 68px;
+      }
+
+      .mechanism-grid,
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links { display: none; }
+
+      .hero-card::after {
+        background: linear-gradient(0deg, rgba(4,7,13,.96), rgba(4,7,13,.25));
+      }
+
+      .hero-content { padding-top: 260px; }
+      .game-card img { min-height: 320px; }
+    }
+
+    @media (max-width: 540px) {
+      .container { width: min(100% - 24px, 1160px); }
+      section { padding: 80px 0; }
+      .hero { padding-top: 96px; }
+      .hero-card { min-height: 78vh; }
+      .hero-content {
+        padding: 28px;
+        padding-top: 260px;
+      }
+
+      .goals-grid { grid-template-columns: 1fr; }
+
+      .final-caption {
+        position: static;
+        border: 0;
+        border-radius: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      html { scroll-behavior: auto; }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="../index.html" aria-label="Return to homepage">VP</a>
+
+      <div class="nav-links">
+        <a href="#challenge">Challenge</a>
+        <a href="#process">Process</a>
+        <a href="#mechanisms">Mechanisms</a>
+        <a href="#results">Results</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero container">
+      <div class="hero-card">
+        <img
+          class="hero-image"
+          src="../assets/images/push-back/final-robot.jpg"
+          alt="Completed Push Back competition robot"
+        >
+
+        <div class="hero-content reveal">
+          <p class="eyebrow">VEX V5 Robotics · 2025–2026</p>
+
+          <h1>Push<br>Back</h1>
+
+          <p class="hero-copy">
+            A tournament-winning competition robot developed through rapid
+            prototyping, CAD-driven design, mechanical iteration, and repeated
+            field testing.
+          </p>
+
+          <div class="hero-tags">
+            <span class="tag">Mechanical Design</span>
+            <span class="tag">Fusion 360</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">Pneumatics</span>
+            <span class="tag">Competition Robotics</span>
+          </div>
+
+          <a class="scroll-cue" href="#challenge">
+            Explore the build <span>↓</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section id="challenge">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">01 · The Challenge</p>
+            <h2>Designing for the game</h2>
+          </div>
+
+          <p class="lead">
+            Push Back demanded a robot that could collect game objects quickly,
+            move them through the robot without jams, store several at once,
+            and score reliably under match pressure. Our design therefore
+            centered on speed, capacity, consistency, and easy maintenance.
+          </p>
+        </div>
+
+        <div class="game-card reveal">
+          <img
+            src="../assets/images/push-back/mid-goal-test.jpg"
+            alt="Robot testing around a Push Back field goal"
+          >
+
+          <div class="game-copy">
+            <p class="section-label">Game overview</p>
+
+            <h3>Turn field strategy into mechanical requirements</h3>
+
+            <p>
+              The game used red and blue scoring objects and multiple field
+              objectives. A successful robot needed to intake from the floor
+              and loading areas, control objects inside the robot, and score
+              into different targets without sacrificing mobility or reliability.
+            </p>
+
+            <div class="goals-grid">
+              <div class="goal">
+                <strong>Fast acquisition</strong>
+                <span>Collect objects from varied approach angles.</span>
+              </div>
+
+              <div class="goal">
+                <strong>High capacity</strong>
+                <span>Hold and index multiple objects.</span>
+              </div>
+
+              <div class="goal">
+                <strong>Flexible scoring</strong>
+                <span>Reach more than one scoring objective.</span>
+              </div>
+
+              <div class="goal">
+                <strong>Match durability</strong>
+                <span>Survive repeated impacts and long events.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">02 · Engineering Process</p>
+            <h2>Built through iteration</h2>
+          </div>
+
+          <p class="lead">
+            The final robot was not one design built once. Each prototype
+            answered a specific engineering question, exposed weaknesses,
+            and guided the next revision.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-row reveal">
+            <div class="timeline-image">
+              <img
+                src="../assets/images/push-back/drive-prototype.jpg"
+                alt="Early Push Back drivetrain prototype"
+              >
+            </div>
+
+            <div class="timeline-copy">
+              <p class="step">Step 01 · Drive prototype</p>
+              <h3>Establishing a rigid foundation</h3>
+
+              <p>
+                The season began with a compact drivetrain used to validate
+                packaging, wheel placement, chassis stiffness, and the space
+                available for future scoring mechanisms.
+              </p>
+
+              <div class="decision">
+                <strong>Design focus:</strong> rigidity, low center of gravity,
+                accessibility, and predictable handling.
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-row reveal">
+            <div class="timeline-image">
+              <img
+                src="../assets/images/push-back/early-prototype.jpg"
+                alt="First integrated Push Back robot prototype"
+              >
+            </div>
+
+            <div class="timeline-copy">
+              <p class="step">Step 02 · First integrated prototype</p>
+              <h3>Testing the full object path</h3>
+
+              <p>
+                The first complete prototype combined intake, vertical
+                transport, storage, and scoring. It was intentionally
+                experimental and helped identify transition points where
+                objects could stall, shift, or jam.
+              </p>
+
+              <div class="decision">
+                <strong>Key lesson:</strong> the intake, conveyor, and storage
+                system had to be designed as one continuous path.
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-row reveal">
+            <div class="timeline-image">
+              <img
+                src="../assets/images/push-back/competition-cad.jpg"
+                alt="Fusion 360 CAD model of the competition robot"
+              >
+            </div>
+
+            <div class="timeline-copy">
+              <p class="step">Step 03 · CAD development</p>
+              <h3>Resolving problems before fabrication</h3>
+
+              <p>
+                The competition design was modeled in Fusion 360 to verify
+                mechanism geometry, structural mounting points, chain routing,
+                component clearance, and overall packaging.
+              </p>
+
+              <div class="decision">
+                <strong>CAD advantage:</strong> interference and serviceability
+                issues could be corrected before rebuilding physical assemblies.
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-row reveal">
+            <div class="timeline-image">
+              <img
+                src="../assets/images/push-back/intake-prototype.jpg"
+                alt="Push Back intake prototype"
+              >
+            </div>
+
+            <div class="timeline-copy">
+              <p class="step">Step 04 · Intake iteration</p>
+              <h3>Improving alignment and compression</h3>
+
+              <p>
+                Roller spacing, elastic tension, and approach geometry were
+                adjusted to center objects and maintain contact even when the
+                robot approached from an imperfect angle.
+              </p>
+
+              <div class="decision">
+                <strong>Tradeoff:</strong> enough compression for control
+                without creating excessive drag or jams.
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="mechanisms">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">03 · Mechanisms</p>
+            <h2>One continuous scoring system</h2>
+          </div>
+
+          <p class="lead">
+            The robot used several linked subsystems. Each mechanism had to
+            transfer the game object cleanly to the next stage while remaining
+            compact enough for the complete robot.
+          </p>
+        </div>
+
+        <div class="mechanism-grid">
+          <article class="content-card reveal">
+            <img
+              src="../assets/images/push-back/stage-two-conveyor.jpg"
+              alt="Chain-driven second-stage conveyor"
+            >
+
+            <div class="card-copy">
+              <p class="step">Stage two conveyor</p>
+              <h3>Controlled vertical indexing</h3>
+
+              <p>
+                Chain-mounted paddles maintained positive contact with each
+                object and carried it vertically through the robot. Paddle
+                placement was tuned to preserve spacing and reduce stalls.
+              </p>
+            </div>
+          </article>
+
+          <article class="content-card reveal">
+            <img
+              src="../assets/images/push-back/three-stage-scoring.jpg"
+              alt="Three-stage scoring mechanism"
+            >
+
+            <div class="card-copy">
+              <p class="step">Three-stage scoring</p>
+              <h3>Moving objects from intake to release</h3>
+
+              <p>
+                Multiple driven stages created a continuous path from
+                acquisition to final scoring, allowing the robot to process
+                objects without requiring separate manual repositioning.
+              </p>
+            </div>
+          </article>
+
+          <article class="content-card reveal">
+            <img
+              src="../assets/images/push-back/mid-goal-piston.jpg"
+              alt="Pneumatic mid-goal scoring mechanism"
+            >
+
+            <div class="card-copy">
+              <p class="step">Pneumatic scorer</p>
+              <h3>Fast, repeatable deployment</h3>
+
+              <p>
+                A pneumatic actuator provided rapid motion for the mid-goal
+                scoring mechanism while keeping the system compact and
+                mechanically simple.
+              </p>
+            </div>
+          </article>
+
+          <article class="content-card reveal">
+            <img
+              src="../assets/images/push-back/match-loader-scraper.jpg"
+              alt="Match loader scraper prototype"
+            >
+
+            <div class="card-copy">
+              <p class="step">Match loader scraper</p>
+              <h3>Collecting from a fixed loading area</h3>
+
+              <p>
+                The scraper geometry was developed to guide objects away from
+                the loader and into the intake path with minimal alignment from
+                the driver.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="final">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">04 · Final Robot</p>
+            <h2>The integrated design</h2>
+          </div>
+
+          <p class="lead">
+            The completed competition robot combined the refined drivetrain,
+            intake, chain conveyor, storage path, scoring system, and pneumatic
+            mechanisms into one serviceable platform.
+          </p>
+        </div>
+
+        <div class="final-wrap reveal">
+          <img
+            src="../assets/images/push-back/final-robot.jpg"
+            alt="Completed Push Back competition robot"
+          >
+
+          <div class="final-caption">
+            <h3>Competition Robot — Final Mechanical Configuration</h3>
+
+            <p>
+              The final design reflects the full season of prototyping:
+              stronger structure, cleaner object transitions, improved service
+              access, and mechanisms designed around competition reliability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">05 · Results</p>
+            <h2>Measured by competition</h2>
+          </div>
+
+          <p class="lead">
+            The strongest validation came from repeated performance at major
+            events, where the robot had to remain effective through qualification
+            rounds, elimination matches, and skills runs.
+          </p>
+        </div>
+
+        <div class="results-grid">
+          <div class="result reveal">
+            <strong>Champion</strong>
+            <span>LAUNCH VEX V5 Signature Event</span>
+          </div>
+
+          <div class="result reveal">
+            <strong>Champion</strong>
+            <span>Cedar Grove Push Back Tournament</span>
+          </div>
+
+          <div class="result reveal">
+            <strong>Innovate</strong>
+            <span>Award for engineering design</span>
+          </div>
+
+          <div class="result reveal">
+            <strong>132</strong>
+            <span>Combined skills score</span>
+          </div>
+
+          <div class="result reveal">
+            <strong>Worlds</strong>
+            <span>VEX World Championship qualification</span>
+          </div>
+
+          <div class="result reveal">
+            <strong>Finalist</strong>
+            <span>CREATE U.S. Open division</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lessons">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">06 · Reflection</p>
+            <h2>What the season taught me</h2>
+          </div>
+
+          <p class="lead">
+            This project reinforced that competitive engineering is not about
+            finding one perfect idea. It is about building quickly, testing
+            honestly, identifying failure points, and improving the design until
+            performance becomes repeatable. The final robot succeeded because
+            every major subsystem was revised in response to real testing.
+          </p>
+        </div>
+
+        <div class="gallery reveal">
+          <img
+            src="../assets/images/push-back/prototype-detail.jpg"
+            alt="Early prototype mechanism detail"
+          >
+
+          <img
+            src="../assets/images/push-back/match-loader-scraper-detail.jpg"
+            alt="Match loader scraper detail"
+          >
+
+          <img
+            src="../assets/images/push-back/odometry-pods.jpg"
+            alt="Robot odometry pods"
+          >
+
+          <img
+            src="../assets/images/push-back/mid-goal-test.jpg"
+            alt="Mid-goal testing"
+          >
+
+          <img
+            src="../assets/images/push-back/stage-two-conveyor.jpg"
+            alt="Conveyor close-up"
+          >
+
+          <img
+            src="../assets/images/push-back/three-stage-scoring.jpg"
+            alt="Scoring mechanism close-up"
+          >
+        </div>
+
+        <a class="back-link" href="../index.html">
+          ← Return to portfolio
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Vraj Paghdal · Mechanical Engineering Portfolio
+  </footer>
+
+  <script>
+    const items = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    items.forEach((item) => observer.observe(item));
+
+    const hero = document.querySelector(".hero-image");
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (
+          !hero ||
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+          return;
+        }
+
+        hero.style.transform =
+          `scale(1) translateY(${window.scrollY * 0.055}px)`;
+      },
+      { passive: true }
+    );
+  </script>
+</body>
+</html>
+"""
+
+html_path = proj_dir / "push-back.html"
+html_path.write_text(html, encoding="utf-8")
+
+readme = """Push Back portfolio package
+
+Upload these folders into your vraj-portfolio repository:
+
+assets/images/push-back/
+projects/push-back.html
+
+Add this link to the Push Back card in index.html:
+
+<a href="projects/push-back.html">View Push Back Case Study →</a>
+
+The page contains its own CSS and JavaScript, so you do not need to edit styles.css or script.js.
+"""
+
+(base / "README.txt").write_text(readme, encoding="utf-8")
+
+zip_path = Path("/mnt/data/push-back-portfolio.zip")
+
+with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+    for file_path in base.rglob("*"):
+        if file_path.is_file():
+            zf.write(file_path, file_path.relative_to(base))
+
+print("Created:", zip_path)
+print("HTML:", html_path)
+print("Images copied:", len(sources) - len(missing))
+print("Missing:", missing)
