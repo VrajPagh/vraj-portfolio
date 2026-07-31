@@ -123,7 +123,7 @@
               The field included red and blue rings, mobile goals, wall stakes,
               and a central climbing structure. Robots had to move efficiently
               around the field, acquire rings from different locations, score
-              onto multiple targets, and preserve enough time for endgame strategy.
+              onto multiple targets, and preserve enough time for a ladder climb.
             </p>
           </div>
         </div>
@@ -141,7 +141,7 @@
 
           <div class="challenge-card reveal">
             <strong>Endgame Climb</strong>
-            <span>Reach the central structure for valuable late-match points.</span>
+            <span>Reach the central structure for an oppurtunity to earn bonus points with a climb</span>
           </div>
 
           <div class="challenge-card reveal">
@@ -159,10 +159,10 @@
           <p class="lead">Each robot version tested a different combination of geometry, mechanism placement, object control, and structural support. The strongest decisions from each build were carried into the next version.</p>
         </div>
         <div class="timeline">
-          <article class="timeline-row reveal"><div class="timeline-image"><img src="../assets/images/IMG_1235.jpg" alt="Prototype 1"></div><div class="timeline-copy"><p class="step">Prototype 01</p><h3>Establishing the first layout</h3><p>The first build combined the drivetrain and scoring concept into a testable robot, revealing packaging limits, weight-distribution issues, and weak object transitions.</p><div class="decision"><strong>Purpose:</strong> validate the overall architecture.</div></div></article>
-          <article class="timeline-row reveal"><div class="timeline-image"><img src="../assets/images/IMG_1401.jpg" alt="Prototype 2"></div><div class="timeline-copy"><p class="step">Prototype 02</p><h3>Improving mechanism alignment</h3><p>The second version adjusted mechanism positions and structure to create smoother object movement and a more stable frame.</p><div class="decision"><strong>Focus:</strong> better alignment with less complexity.</div></div></article>
-          <article class="timeline-row reveal"><div class="timeline-image"><img src="../assets/images/IMG_1856.jpg" alt="Prototype 3"></div><div class="timeline-copy"><p class="step">Prototype 03</p><h3>Testing the full object path</h3><p>This build tested the intake and scoring stages as one system. Repeated practice exposed issues that did not appear when mechanisms were tested separately.</p><div class="decision"><strong>Lesson:</strong> transitions matter as much as individual mechanisms.</div></div></article>
-          <article class="timeline-row reveal"><div class="timeline-image"><img src="../assets/images/IMG_1259.jpg" alt="Prototype 4"></div><div class="timeline-copy"><p class="step">Prototype 04</p><h3>Competition refinement</h3><p>The final prototype emphasized consistency, structural support, repair access, and repeatable performance under tournament conditions.</p><div class="decision"><strong>Priority:</strong> reliability over unnecessary complexity.</div></div></article>
+          <article class="timeline-row reveal"><div class="timeline-image"><img src="../assets/images/IMG_1235.jpg" alt="Prototype 1"></div><div class="timeline-copy"><p class="step">Prototype 01</p><h3>Establishing the first layout</h3><p>The first build was protoype intake and scoring design. We had this design picked u prings and scored them using a hood which pushed down on the mobile goals to place rings on them.</p><div class="decision"><strong>Purpose:</strong> to test a brainstormed design</div></div></article>
+          <article class="timeline-row reveal"><div class="timeline-image"><img src="../assets/images/IMG_1401.jpg" alt="Prototype 2"></div><div class="timeline-copy"><p class="step">Prototype 02</p><h3>Improving mechanism alignment</h3><p>The second version is a similiar prototype but it uses hooks to score rings instead of a conveyor belt and hood. This design place rings on the goals immediately and was very effcient. Therefore we kept a design like this for the rest of the season.</p><div class="decision"><strong>Focus:</strong> too test another solution too scoring that my team and I thought would work</div></div></article>
+          <article class="timeline-row reveal"><div class="timeline-image"><img src="../assets/images/IMG_1856.jpg" alt="Prototype 3"></div><div class="timeline-copy"><p class="step">Prototype 03</p><h3>Wall stakes</h3><p>TO combat the problem of wall stakes, we created an arm that goes up and down to place rigns on the wall stakes. It first uses a roatation sensor to go to a loading position where the intake can put a ring in it. Then, it will going into another position to score and another position to start. These positions are controleld using a motor and roatation sensor that uses a PID controller to accurately control the elvation of the arm.</p></div></article>
+          <article class="timeline-row reveal"><div class="timeline-image"><img src="../assets/images/IMG_1259.jpg" alt="Prototype 4"></div><div class="timeline-copy"><p class="step">Prototype 04</p><h3>Autonomous path planning</h3><p>Our robots autonomous path will be mapped used odometry which uses X and Y coordinates to make the robot move to a certain point on the field. In order to track X and Y, we have these dummy wheels on rotation sensors that tracks the movement of each wheel to determine the position on the field</p></div></article>
         </div>
       </div>
     </section>
