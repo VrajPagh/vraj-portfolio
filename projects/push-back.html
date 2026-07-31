@@ -641,6 +641,181 @@
       font-size: .9rem;
     }
 
+
+    .worlds-hero {
+      position: relative;
+      min-height: 680px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      isolation: isolate;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 42px;
+    }
+
+    .worlds-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        0deg,
+        rgba(4,7,13,.98) 0%,
+        rgba(4,7,13,.70) 46%,
+        rgba(4,7,13,.08) 100%
+      );
+    }
+
+    .worlds-hero img {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .worlds-hero-copy {
+      max-width: 900px;
+      padding: clamp(30px, 7vw, 72px);
+    }
+
+    .worlds-hero-copy h3 {
+      margin: 10px 0 18px;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: .96;
+      letter-spacing: -.05em;
+    }
+
+    .worlds-hero-copy p {
+      color: #d4dbea;
+      font-size: 1.08rem;
+    }
+
+    .worlds-timeline {
+      position: relative;
+      margin-top: 24px;
+    }
+
+    .worlds-timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(var(--accent), transparent);
+    }
+
+    .worlds-step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      margin-bottom: 96px;
+    }
+
+    .worlds-step:nth-child(even) .worlds-image { order: 2; }
+    .worlds-step:nth-child(even) .worlds-copy { order: 1; }
+
+    .worlds-step::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 7px rgba(94,161,255,.13);
+      transform: translate(-50%, -50%);
+    }
+
+    .worlds-image {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--panel);
+      box-shadow: 0 20px 55px rgba(0,0,0,.28);
+    }
+
+    .worlds-image img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: transform .75s ease;
+    }
+
+    .worlds-image:hover img { transform: scale(1.05); }
+
+    .worlds-copy h3 {
+      font-size: clamp(1.7rem, 3vw, 2.45rem);
+      line-height: 1.12;
+      margin-bottom: 16px;
+    }
+
+    .worlds-copy p { color: var(--muted); }
+
+    .worlds-cad-grid,
+    .worlds-final-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .worlds-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(145deg, var(--panel), var(--panel-2));
+    }
+
+    .worlds-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .worlds-card-copy { padding: 24px; }
+
+    .worlds-card-copy h3 {
+      margin-bottom: 10px;
+      font-size: 1.55rem;
+    }
+
+    .worlds-card-copy p { color: var(--muted); }
+
+    .worlds-gallery {
+      columns: 3 280px;
+      column-gap: 18px;
+      margin-top: 34px;
+    }
+
+    .worlds-gallery figure {
+      break-inside: avoid;
+      margin: 0 0 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--panel);
+    }
+
+    .worlds-gallery img {
+      width: 100%;
+      display: block;
+    }
+
+    .worlds-gallery figcaption {
+      padding: 14px 16px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
     .final-wrap {
       position: relative;
       overflow: hidden;
@@ -775,17 +950,23 @@
       }
 
       .timeline::before,
-      .timeline-row::after {
+      .timeline-row::after,
+      .worlds-timeline::before,
+      .worlds-step::after {
         display: none;
       }
 
       .timeline-row,
       .timeline-row:nth-child(even) .timeline-image,
-      .timeline-row:nth-child(even) .timeline-copy {
+      .timeline-row:nth-child(even) .timeline-copy,
+      .worlds-step,
+      .worlds-step:nth-child(even) .worlds-image,
+      .worlds-step:nth-child(even) .worlds-copy {
         order: initial;
       }
 
-      .timeline-row {
+      .timeline-row,
+      .worlds-step {
         gap: 26px;
         margin-bottom: 68px;
       }
@@ -795,6 +976,9 @@
       .mid-season-grid,
       .mid-results,
       .launch-achievements,
+      .worlds-step,
+      .worlds-cad-grid,
+      .worlds-final-grid,
       .auton-copy {
         grid-template-columns: 1fr;
       }
@@ -857,6 +1041,7 @@
         <a href="#mechanisms">Mechanisms</a>
         <a href="#launch-win">LAUNCH Win</a>
         <a href="#mid-season">Mid Season</a>
+        <a href="#worlds">Worlds Robot</a>
         <a href="#results">Results</a>
       </div>
     </div>
@@ -1402,14 +1587,339 @@
         </div>
 
 
+      </div>
+    </section>
 
-   
+
+    <section id="worlds">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">06 · Worlds Development</p>
+            <h2>Rebuilding for the World Championship</h2>
+          </div>
+
+          <p class="lead">
+            After the mid-season robot proved successful, we redesigned the robot
+            again for the highest level of competition. The Worlds build focused
+            on improved block flow, compact packaging, stronger scoring geometry,
+            and mechanisms that could be maintained quickly during a long event.
+          </p>
+        </div>
+
+        <div class="worlds-hero reveal">
+          <img
+            src="../assets/images/push-back/complete worlds bot.jpg"
+            alt="Completed Push Back robot prepared for the VEX World Championship"
+          >
+
+          <div class="worlds-hero-copy">
+            <p class="section-label">World Championship Robot</p>
+            <h3>The final evolution of the season</h3>
+
+            <p>
+              The completed Worlds robot combined lessons from the early- and
+              mid-season designs while changing the intake geometry, motor
+              distribution, scoring system, scraper, and internal packaging.
+              It represented the final mechanical evolution of our Push Back robot.
+            </p>
+          </div>
+        </div>
+
+        <div class="worlds-timeline">
+          <article class="worlds-step reveal">
+            <div class="worlds-image">
+              <img
+                src="../assets/images/push-back/worlds bot (during build) inittial geometry and intake roller locations.jpg"
+                alt="Initial Worlds robot geometry and intake roller placement"
+              >
+            </div>
+
+            <div class="worlds-copy">
+              <p class="step">Step 01 · Initial geometry</p>
+              <h3>Defining the new block path</h3>
+
+              <p>
+                The rebuild began by establishing the frame geometry and the
+                positions of the intake rollers. This allowed us to test how blocks
+                would enter the robot, change direction, and move toward the upper
+                scoring stages before the full mechanism was completed.
+              </p>
+
+              <div class="decision">
+                <strong>Design focus:</strong> compact packaging, smooth transitions,
+                and sufficient clearance for the scoring mechanisms.
+              </div>
+            </div>
+          </article>
+
+          <article class="worlds-step reveal">
+            <div class="worlds-image">
+              <img
+                src="../assets/images/push-back/Worlds bot (during build) first stage intake.jpg"
+                alt="First-stage intake construction on the Worlds robot"
+              >
+            </div>
+
+            <div class="worlds-copy">
+              <p class="step">Step 02 · First-stage intake</p>
+              <h3>Building reliable acquisition</h3>
+
+              <p>
+                The first-stage intake used roller compression and flexible material
+                to collect blocks from imperfect approach angles and guide them
+                toward the next mechanism.
+              </p>
+
+              <div class="decision">
+                <strong>Key tradeoff:</strong> enough compression to control the
+                blocks without creating excessive resistance.
+              </div>
+            </div>
+          </article>
+
+          <article class="worlds-step reveal">
+            <div class="worlds-image">
+              <img
+                src="../assets/images/push-back/worlds bot during build mid goal.jpg"
+                alt="Mid-goal mechanism during construction on the Worlds robot"
+              >
+            </div>
+
+            <div class="worlds-copy">
+              <p class="step">Step 03 · Mid-goal development</p>
+              <h3>Integrating the trap-door system</h3>
+
+              <p>
+                The mid-goal mechanism was developed while the robot remained open,
+                allowing us to adjust the pivot location, pneumatic actuation, and
+                surrounding structure before installing the remaining assemblies.
+              </p>
+
+              <div class="decision">
+                <strong>Engineering goal:</strong> repeatable movement without
+                interfering with the intake or upper scoring stages.
+              </div>
+            </div>
+          </article>
+
+          <article class="worlds-step reveal">
+            <div class="worlds-image">
+              <img
+                src="../assets/images/push-back/intake motor distribution.jpg"
+                alt="Motor distribution and gearing for the Worlds robot intake"
+              >
+            </div>
+
+            <div class="worlds-copy">
+              <p class="step">Step 04 · Motor distribution</p>
+              <h3>Adding power without blocking the mechanism</h3>
+
+              <p>
+                Intake motors and gearing were distributed around the frame to
+                deliver power to multiple scoring stages while preserving the block
+                path and keeping motors accessible for repairs.
+              </p>
+
+              <div class="decision">
+                <strong>Packaging decision:</strong> protect the motors while
+                maintaining access to couplers, gears, and mounting hardware.
+              </div>
+            </div>
+          </article>
+
+          <article class="worlds-step reveal">
+            <div class="worlds-image">
+              <img
+                src="../assets/images/push-back/worlds bot socring mech.jpg"
+                alt="Worlds robot scoring mechanism under development"
+              >
+            </div>
+
+            <div class="worlds-copy">
+              <p class="step">Step 05 · Scoring mechanism</p>
+              <h3>Controlling the final release</h3>
+
+              <p>
+                The scoring mechanism used staged rollers and flexible guides to
+                maintain control through the upper section of the robot. Roller
+                spacing and guide geometry were adjusted to improve release
+                consistency.
+              </p>
+
+              <div class="decision">
+                <strong>Design objective:</strong> preserve scoring speed while
+                keeping each block aligned.
+              </div>
+            </div>
+          </article>
+
+          <article class="worlds-step reveal">
+            <div class="worlds-image">
+              <img
+                src="../assets/images/push-back/worlds bot scraper.jpg"
+                alt="Worlds robot match-loader scraper"
+              >
+            </div>
+
+            <div class="worlds-copy">
+              <p class="step">Step 06 · Match-loader scraper</p>
+              <h3>Reducing driver alignment</h3>
+
+              <p>
+                The front scraper was redesigned to guide blocks from the loading
+                area into the intake with less precise driver positioning. Its shape
+                and mounting were refined to remain rigid during repeated use.
+              </p>
+
+              <div class="decision">
+                <strong>Driver advantage:</strong> faster loading with fewer
+                corrections at the match loader.
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">CAD Development</p>
+            <h2>Verifying the final architecture</h2>
+          </div>
+
+          <p class="lead">
+            CAD was used to evaluate the object path, mechanism angles, scoring
+            clearances, structural geometry, and component placement before the
+            Worlds robot was fully assembled.
+          </p>
+        </div>
+
+        <div class="worlds-cad-grid">
+          <article class="worlds-card reveal">
+            <img
+              src="../assets/images/push-back/worlds bot CAD side view.jpg"
+              alt="Side-view CAD model of the Worlds robot"
+            >
+
+            <div class="worlds-card-copy">
+              <h3>Side-view packaging</h3>
+              <p>
+                This view helped verify the vertical block path, roller spacing,
+                mechanism angles, and the relationship between scoring stages.
+              </p>
+            </div>
+          </article>
+
+          <article class="worlds-card reveal">
+            <img
+              src="../assets/images/push-back/worlds bot CAD normal view.jpg"
+              alt="Three-quarter CAD model of the Worlds robot"
+            >
+
+            <div class="worlds-card-copy">
+              <h3>Complete assembly</h3>
+              <p>
+                The complete model was used to check interference, dimensions,
+                structural support, and access to internal components.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-heading reveal" style="margin-top: 90px;">
+          <div>
+            <p class="section-label">Completed Robot</p>
+            <h2>Ready for Worlds</h2>
+          </div>
+
+          <p class="lead">
+            The completed robot brought the intake, scraper, staged scoring system,
+            pneumatic mechanisms, drivetrain, and electronics into one
+            competition-ready platform.
+          </p>
+        </div>
+
+        <div class="worlds-final-grid">
+          <article class="worlds-card reveal">
+            <img
+              src="../assets/images/push-back/worlds bot front view.jpg"
+              alt="Front view of the completed Worlds robot"
+            >
+
+            <div class="worlds-card-copy">
+              <h3>Front view</h3>
+              <p>
+                This view shows the intake opening, scraper geometry, lower rollers,
+                pneumatic reservoir, and drivetrain packaging.
+              </p>
+            </div>
+          </article>
+
+          <article class="worlds-card reveal">
+            <img
+              src="../assets/images/push-back/another worlds bot image.jpg"
+              alt="Additional view of the completed Worlds robot"
+            >
+
+            <div class="worlds-card-copy">
+              <h3>Integrated system</h3>
+              <p>
+                This view highlights how the scoring stages, structure, pneumatics,
+                electronics, and block path were integrated into the final design.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="worlds-gallery reveal">
+          <figure>
+            <img
+              src="../assets/images/push-back/IMG_4870.jpg"
+              alt="Worlds robot during travel and event preparation"
+            >
+            <figcaption>
+              Completed Worlds robot during travel and event preparation.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../assets/images/push-back/worlds bot socring mech.jpg"
+              alt="Close-up of the Worlds scoring system"
+            >
+            <figcaption>
+              Close-up of the staged scoring mechanism and flexible guides.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../assets/images/push-back/worlds bot scraper.jpg"
+              alt="Close-up of the Worlds scraper"
+            >
+            <figcaption>
+              Front scraper and intake interface designed for rapid loading.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../assets/images/push-back/intake motor distribution.jpg"
+              alt="Worlds robot motor distribution detail"
+            >
+            <figcaption>
+              Motor placement and gearing used to power the intake stages.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
 
     <section id="results">
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="section-label">06 · Results</p>
+            <p class="section-label">07 · Results</p>
             <h2>Measured by competition</h2>
           </div>
 
