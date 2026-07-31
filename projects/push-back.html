@@ -362,6 +362,113 @@
     .card-copy { padding: 28px; }
 
 
+
+    .launch-showcase {
+      position: relative;
+      min-height: 680px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      isolation: isolate;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .launch-showcase::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(0deg, rgba(4,7,13,.98) 0%, rgba(4,7,13,.72) 42%, rgba(4,7,13,.10) 100%);
+    }
+
+    .launch-showcase img {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .launch-showcase-copy {
+      max-width: 900px;
+      padding: clamp(30px, 7vw, 72px);
+    }
+
+    .launch-showcase-copy h3 {
+      margin: 10px 0 18px;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: .96;
+      letter-spacing: -.05em;
+    }
+
+    .launch-showcase-copy p {
+      color: #d4dbea;
+      font-size: 1.08rem;
+    }
+
+    .launch-achievements {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .launch-achievement {
+      min-height: 150px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,.035);
+    }
+
+    .launch-achievement strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1.12;
+    }
+
+    .launch-achievement span {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .launch-event-image {
+      margin-top: 34px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: linear-gradient(145deg, var(--panel), var(--panel-2));
+    }
+
+    .launch-event-image img {
+      width: 100%;
+      max-height: 760px;
+      object-fit: cover;
+    }
+
+    .launch-event-image figcaption {
+      padding: 18px 22px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .transition-note {
+      margin-top: 34px;
+      padding: 24px 26px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 14px 14px 0;
+      background: rgba(94,161,255,.07);
+      color: #d9e7f8;
+      font-size: 1.02rem;
+    }
+
     .mid-season-hero {
       position: relative;
       overflow: hidden;
@@ -687,6 +794,7 @@
       .results-grid,
       .mid-season-grid,
       .mid-results,
+      .launch-achievements,
       .auton-copy {
         grid-template-columns: 1fr;
       }
@@ -747,6 +855,7 @@
         <a href="#challenge">Challenge</a>
         <a href="#process">Process</a>
         <a href="#mechanisms">Mechanisms</a>
+        <a href="#launch-win">LAUNCH Win</a>
         <a href="#mid-season">Mid Season</a>
         <a href="#results">Results</a>
       </div>
@@ -1040,11 +1149,94 @@
     </section>
 
 
+
+    <section id="launch-win">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">04 · Early-Season Success</p>
+            <h2>LAUNCH Signature Event Champions</h2>
+          </div>
+
+          <p class="lead">
+            The completed early-season robot reached its competitive breakthrough
+            at the LAUNCH VEX V5 Signature Event in Cleveland, Ohio. Winning the
+            tournament qualified our team for the VEX Robotics World Championship
+            and validated the mechanisms developed throughout the first part of
+            the season.
+          </p>
+        </div>
+
+        <div class="launch-showcase reveal">
+          <img
+            src="../assets/images/push-back/robot with banners.jpg"
+            alt="Team displaying the LAUNCH Signature Event championship banners and trophy"
+          >
+
+          <div class="launch-showcase-copy">
+            <p class="section-label">Completed Early-Season Robot</p>
+            <h3>A tournament-winning design</h3>
+
+            <p>
+              After rapid prototyping, CAD development, mechanism testing, and
+              repeated driver practice, the early-season robot captured the
+              Tournament Champion title at LAUNCH. The victory marked the first
+              major validation of the complete robot and secured our qualification
+              for the 2026 VEX Robotics World Championship.
+            </p>
+          </div>
+        </div>
+
+        <div class="launch-achievements">
+          <div class="launch-achievement reveal">
+            <strong>Tournament Champion</strong>
+            <span>LAUNCH VEX V5 Signature Event</span>
+          </div>
+
+          <div class="launch-achievement reveal">
+            <strong>Worlds Qualified</strong>
+            <span>Earned a berth to the VEX World Championship</span>
+          </div>
+
+          <div class="launch-achievement reveal">
+            <strong>Early-Season Robot</strong>
+            <span>The first completed competition configuration</span>
+          </div>
+
+          <div class="launch-achievement reveal">
+            <strong>Cleveland, Ohio</strong>
+            <span>Signature Event victory</span>
+          </div>
+        </div>
+
+        <figure class="launch-event-image reveal">
+          <img
+            src="../assets/images/push-back/banner pcitures.jpg"
+            alt="LAUNCH championship banners, trophy, and robots displayed at the event"
+          >
+
+          <figcaption>
+            The championship banners, trophy, and robots displayed following
+            our victory at the LAUNCH Signature Event.
+          </figcaption>
+        </figure>
+
+        <div class="transition-note reveal">
+          Although the early-season robot had already won a Signature Event and
+          qualified for Worlds, we continued redesigning the platform. The next
+          version focused on greater scoring throughput, improved reliability,
+          easier maintenance, and stronger autonomous performance for larger
+          championship events.
+        </div>
+      </div>
+    </section>
+
+
     <section id="mid-season">
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="section-label">04 · Mid Season</p>
+            <p class="section-label">05 · Mid Season</p>
             <h2>From prototype to proven competition robot</h2>
           </div>
 
@@ -1243,7 +1435,7 @@
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="section-label">05 · Final Robot</p>
+            <p class="section-label">06 · Final Robot</p>
             <h2>The integrated design</h2>
           </div>
 
@@ -1277,7 +1469,7 @@
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="section-label">06 · Results</p>
+            <p class="section-label">07 · Results</p>
             <h2>Measured by competition</h2>
           </div>
 
@@ -1326,7 +1518,7 @@
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="section-label">07 · Reflection</p>
+            <p class="section-label">08 · Reflection</p>
             <h2>What the season taught me</h2>
           </div>
 
