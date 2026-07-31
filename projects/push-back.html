@@ -1601,32 +1601,61 @@
 
           <p class="lead">
             After the mid-season robot proved successful, we redesigned the robot
-            again for the highest level of competition. The Worlds build focused
-            on improved block flow, compact packaging, stronger scoring geometry,
-            and mechanisms that could be maintained quickly during a long event.
+            again for the highest level of competition. The Worlds build began in
+            CAD so we could define the new block path, mechanism geometry, motor
+            placement, and structural layout before fabrication.
           </p>
         </div>
 
-        <div class="worlds-hero reveal">
-          <img
-            src="../assets/images/push-back/complete worlds bot.jpg"
-            alt="Completed Push Back robot prepared for the VEX World Championship"
-          >
-
-          <div class="worlds-hero-copy">
-            <p class="section-label">World Championship Robot</p>
-            <h3>The final evolution of the season</h3>
-
-            <p>
-              The completed Worlds robot combined lessons from the early- and
-              mid-season designs while changing the intake geometry, motor
-              distribution, scoring system, scraper, and internal packaging.
-              It represented the final mechanical evolution of our Push Back robot.
-            </p>
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">Step 01 · CAD Development</p>
+            <h2>Designing the architecture first</h2>
           </div>
+
+          <p class="lead">
+            The Worlds robot started as a complete Fusion 360 concept. CAD allowed
+            us to evaluate the vertical block path, roller spacing, mechanism
+            angles, clearances, structural support, and access to internal
+            components before committing to the physical build.
+          </p>
         </div>
 
-        <div class="worlds-timeline">
+        <div class="worlds-cad-grid">
+          <article class="worlds-card reveal">
+            <img
+              src="../assets/images/push-back/worlds bot CAD side view.jpg"
+              alt="Side-view CAD model of the Worlds robot"
+            >
+
+            <div class="worlds-card-copy">
+              <h3>Side-view packaging</h3>
+              <p>
+                The side view was used to verify the vertical block path, roller
+                spacing, scoring angles, and the relationship between the intake,
+                storage, and upper scoring stages.
+              </p>
+            </div>
+          </article>
+
+          <article class="worlds-card reveal">
+            <img
+              src="../assets/images/push-back/worlds bot CAD normal view.jpg"
+              alt="Three-quarter CAD model of the Worlds robot"
+            >
+
+            <div class="worlds-card-copy">
+              <h3>Complete assembly</h3>
+              <p>
+                The complete model helped us check interference, overall dimensions,
+                structural support, component placement, and service access before
+                fabrication.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="worlds-timeline" style="margin-top: 90px;">
           <article class="worlds-step reveal">
             <div class="worlds-image">
               <img
@@ -1636,19 +1665,19 @@
             </div>
 
             <div class="worlds-copy">
-              <p class="step">Step 01 · Initial geometry</p>
-              <h3>Defining the new block path</h3>
+              <p class="step">Step 02 · Initial geometry</p>
+              <h3>Translating CAD into the first frame</h3>
 
               <p>
-                The rebuild began by establishing the frame geometry and the
-                positions of the intake rollers. This allowed us to test how blocks
-                would enter the robot, change direction, and move toward the upper
-                scoring stages before the full mechanism was completed.
+                With the overall architecture established in CAD, the physical
+                rebuild began by setting the frame geometry and intake roller
+                positions. This stage tested whether the planned block path and
+                mechanism clearances translated correctly into the real robot.
               </p>
 
               <div class="decision">
-                <strong>Design focus:</strong> compact packaging, smooth transitions,
-                and sufficient clearance for the scoring mechanisms.
+                <strong>Design focus:</strong> preserve the CAD block path while
+                allowing room for later scoring and pneumatic mechanisms.
               </div>
             </div>
           </article>
@@ -1662,7 +1691,7 @@
             </div>
 
             <div class="worlds-copy">
-              <p class="step">Step 02 · First-stage intake</p>
+              <p class="step">Step 03 · First-stage intake</p>
               <h3>Building reliable acquisition</h3>
 
               <p>
@@ -1681,13 +1710,38 @@
           <article class="worlds-step reveal">
             <div class="worlds-image">
               <img
+                src="../assets/images/push-back/intake motor distribution.jpg"
+                alt="Motor distribution and gearing for the Worlds robot intake"
+              >
+            </div>
+
+            <div class="worlds-copy">
+              <p class="step">Step 04 · Motor distribution</p>
+              <h3>Adding power without blocking the mechanism</h3>
+
+              <p>
+                Intake motors and gearing were distributed around the frame to
+                deliver power to multiple stages while preserving the block path
+                and keeping motors accessible for repairs.
+              </p>
+
+              <div class="decision">
+                <strong>Packaging decision:</strong> protect the motors while
+                maintaining access to couplers, gears, and mounting hardware.
+              </div>
+            </div>
+          </article>
+
+          <article class="worlds-step reveal">
+            <div class="worlds-image">
+              <img
                 src="../assets/images/push-back/worlds bot during build mid goal.jpg"
                 alt="Mid-goal mechanism during construction on the Worlds robot"
               >
             </div>
 
             <div class="worlds-copy">
-              <p class="step">Step 03 · Mid-goal development</p>
+              <p class="step">Step 05 · Mid-goal development</p>
               <h3>Integrating the trap-door system</h3>
 
               <p>
@@ -1706,38 +1760,13 @@
           <article class="worlds-step reveal">
             <div class="worlds-image">
               <img
-                src="../assets/images/push-back/intake motor distribution.jpg"
-                alt="Motor distribution and gearing for the Worlds robot intake"
-              >
-            </div>
-
-            <div class="worlds-copy">
-              <p class="step">Step 04 · Motor distribution</p>
-              <h3>Adding power without blocking the mechanism</h3>
-
-              <p>
-                Intake motors and gearing were distributed around the frame to
-                deliver power to multiple scoring stages while preserving the block
-                path and keeping motors accessible for repairs.
-              </p>
-
-              <div class="decision">
-                <strong>Packaging decision:</strong> protect the motors while
-                maintaining access to couplers, gears, and mounting hardware.
-              </div>
-            </div>
-          </article>
-
-          <article class="worlds-step reveal">
-            <div class="worlds-image">
-              <img
                 src="../assets/images/push-back/worlds bot socring mech.jpg"
                 alt="Worlds robot scoring mechanism under development"
               >
             </div>
 
             <div class="worlds-copy">
-              <p class="step">Step 05 · Scoring mechanism</p>
+              <p class="step">Step 06 · Scoring mechanism</p>
               <h3>Controlling the final release</h3>
 
               <p>
@@ -1763,7 +1792,7 @@
             </div>
 
             <div class="worlds-copy">
-              <p class="step">Step 06 · Match-loader scraper</p>
+              <p class="step">Step 07 · Match-loader scraper</p>
               <h3>Reducing driver alignment</h3>
 
               <p>
@@ -1780,51 +1809,6 @@
           </article>
         </div>
 
-        <div class="section-heading reveal">
-          <div>
-            <p class="section-label">CAD Development</p>
-            <h2>Verifying the final architecture</h2>
-          </div>
-
-          <p class="lead">
-            CAD was used to evaluate the object path, mechanism angles, scoring
-            clearances, structural geometry, and component placement before the
-            Worlds robot was fully assembled.
-          </p>
-        </div>
-
-        <div class="worlds-cad-grid">
-          <article class="worlds-card reveal">
-            <img
-              src="../assets/images/push-back/worlds bot CAD side view.jpg"
-              alt="Side-view CAD model of the Worlds robot"
-            >
-
-            <div class="worlds-card-copy">
-              <h3>Side-view packaging</h3>
-              <p>
-                This view helped verify the vertical block path, roller spacing,
-                mechanism angles, and the relationship between scoring stages.
-              </p>
-            </div>
-          </article>
-
-          <article class="worlds-card reveal">
-            <img
-              src="../assets/images/push-back/worlds bot CAD normal view.jpg"
-              alt="Three-quarter CAD model of the Worlds robot"
-            >
-
-            <div class="worlds-card-copy">
-              <h3>Complete assembly</h3>
-              <p>
-                The complete model was used to check interference, dimensions,
-                structural support, and access to internal components.
-              </p>
-            </div>
-          </article>
-        </div>
-
         <div class="section-heading reveal" style="margin-top: 90px;">
           <div>
             <p class="section-label">Completed Robot</p>
@@ -1832,10 +1816,29 @@
           </div>
 
           <p class="lead">
-            The completed robot brought the intake, scraper, staged scoring system,
-            pneumatic mechanisms, drivetrain, and electronics into one
-            competition-ready platform.
+            The completed robot brought the CAD architecture, intake, scraper,
+            staged scoring system, pneumatic mechanisms, drivetrain, and
+            electronics into one competition-ready platform.
           </p>
+        </div>
+
+        <div class="worlds-hero reveal">
+          <img
+            src="../assets/images/push-back/complete worlds bot.jpg"
+            alt="Completed Push Back robot prepared for the VEX World Championship"
+          >
+
+          <div class="worlds-hero-copy">
+            <p class="section-label">World Championship Robot</p>
+            <h3>The final evolution of the season</h3>
+
+            <p>
+              The completed Worlds robot combined lessons from the early- and
+              mid-season designs while changing the intake geometry, motor
+              distribution, scoring system, scraper, and internal packaging.
+              It represented the final mechanical evolution of our Push Back robot.
+            </p>
+          </div>
         </div>
 
         <div class="worlds-final-grid">
