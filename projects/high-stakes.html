@@ -16,6 +16,42 @@
     .hero{min-height:100vh;display:grid;align-items:end;padding:130px 0 70px}.hero-card{position:relative;min-height:76vh;overflow:hidden;border:1px solid var(--border);border-radius:28px;box-shadow:var(--shadow);isolation:isolate}.hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,7,13,.96),rgba(4,7,13,.72) 42%,rgba(4,7,13,.12) 74%);z-index:-1}.hero-image{position:absolute;inset:0;height:100%;object-fit:cover;z-index:-2;transform:scale(1.06);animation:heroZoom 12s ease-out forwards}.hero-content{max-width:700px;padding:clamp(32px,7vw,80px);align-self:end}
     .eyebrow,.section-label{color:var(--accent2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;font-weight:800}h1{font-size:clamp(4rem,11vw,8rem);line-height:.88;letter-spacing:-.07em;margin:18px 0 24px}.hero-copy{max-width:640px;color:#d4dbea;font-size:clamp(1rem,2vw,1.2rem)}.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.tag{padding:9px 14px;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.06);font-size:.85rem}.scroll-cue{display:inline-flex;gap:9px;margin-top:32px;color:var(--muted)}
     section{padding:110px 0;border-top:1px solid var(--border)}.section-heading{display:grid;grid-template-columns:.7fr 1.3fr;gap:40px;margin-bottom:52px}h2{font-size:clamp(2.6rem,6vw,5.2rem);line-height:.98;letter-spacing:-.055em;margin-top:10px}.lead{color:var(--muted);font-size:1.08rem;max-width:760px}
+
+    .game-overview {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      overflow: hidden;
+      margin-bottom: 28px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(145deg, var(--panel), var(--panel2));
+    }
+
+    .game-overview img {
+      height: 100%;
+      min-height: 430px;
+      object-fit: contain;
+      background: #fff;
+      padding: 24px;
+    }
+
+    .game-overview-copy {
+      padding: clamp(30px, 6vw, 58px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .game-overview-copy h3 {
+      margin: 10px 0 16px;
+      font-size: clamp(1.7rem, 3vw, 2.45rem);
+      line-height: 1.12;
+    }
+
+    .game-overview-copy p {
+      color: var(--muted);
+    }
+
     .challenge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.challenge-card,.mechanism-card{padding:22px;border:1px solid var(--border);border-radius:16px;background:rgba(255,255,255,.035)}.challenge-card strong{display:block;font-size:1.2rem;margin-bottom:12px}.challenge-card span,.mechanism-card p{color:var(--muted)}
     .timeline{position:relative}.timeline:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(var(--accent),transparent)}.timeline-row{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-bottom:100px}.timeline-row:nth-child(even) .timeline-image{order:2}.timeline-row:nth-child(even) .timeline-copy{order:1}.timeline-row:after{content:"";position:absolute;left:50%;top:50%;width:13px;height:13px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 7px rgba(94,161,255,.13);transform:translate(-50%,-50%)}.timeline-image{overflow:hidden;border:1px solid var(--border);border-radius:20px;background:var(--panel);box-shadow:0 20px 55px rgba(0,0,0,.28)}.timeline-image img{aspect-ratio:4/3;object-fit:cover;transition:.8s}.timeline-image:hover img{transform:scale(1.055)}.step{color:var(--accent2);font-weight:800;letter-spacing:.13em;font-size:.78rem;text-transform:uppercase;margin-bottom:12px}.timeline-copy h3,.final-copy h3{font-size:clamp(1.7rem,3vw,2.45rem);line-height:1.12;margin-bottom:16px}.timeline-copy p,.final-copy p{color:var(--muted)}.decision{margin-top:18px;padding:16px 18px;border-left:3px solid var(--accent);background:rgba(94,161,255,.07);border-radius:0 10px 10px 0}
     .final-showcase{position:relative;min-height:690px;overflow:hidden;display:flex;align-items:flex-end;isolation:isolate;border:1px solid var(--border);border-radius:28px;box-shadow:var(--shadow)}.final-showcase:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(4,7,13,.98),rgba(4,7,13,.65) 45%,rgba(4,7,13,.06))}.final-showcase img{position:absolute;inset:0;z-index:-2;height:100%;object-fit:cover}.final-copy{max-width:860px;padding:clamp(30px,7vw,72px)}.final-copy h3{font-size:clamp(2.5rem,6vw,5rem);line-height:.96;letter-spacing:-.05em;color:var(--text)}
@@ -23,7 +59,7 @@
     .gallery{columns:3 280px;column-gap:18px}.gallery figure{break-inside:avoid;margin:0 0 18px;overflow:hidden;border:1px solid var(--border);border-radius:16px;background:var(--panel)}.gallery figcaption{padding:14px 16px;color:var(--muted);font-size:.9rem}
     .reflection-card{padding:clamp(28px,6vw,56px);border:1px solid var(--border);border-radius:22px;background:linear-gradient(145deg,var(--panel),var(--panel2))}.reflection-card p{color:var(--muted);font-size:1.08rem;max-width:880px}.back-link{display:inline-flex;margin-top:34px;padding:13px 18px;border:1px solid var(--border);border-radius:10px;color:var(--muted)}
     footer{padding:42px 20px;color:var(--muted);text-align:center;border-top:1px solid var(--border)}.reveal{opacity:0;transform:translateY(44px);transition:opacity .85s,transform .85s}.reveal.active{opacity:1;transform:none}
-    @keyframes heroZoom{to{transform:scale(1)}}@media(max-width:850px){.section-heading,.timeline-row{grid-template-columns:1fr}.timeline:before,.timeline-row:after{display:none}.timeline-row,.timeline-row:nth-child(even) .timeline-image,.timeline-row:nth-child(even) .timeline-copy{order:initial}.timeline-row{gap:26px;margin-bottom:68px}.challenge-grid,.mechanism-grid{grid-template-columns:1fr}.nav-links{display:none}.hero-card:after{background:linear-gradient(0deg,rgba(4,7,13,.96),rgba(4,7,13,.25))}.hero-content{padding-top:260px}}@media(max-width:540px){.container{width:min(100% - 24px,1160px)}section{padding:80px 0}.hero{padding-top:96px}.hero-card{min-height:78vh}.hero-content{padding:28px;padding-top:260px}}
+    @keyframes heroZoom{to{transform:scale(1)}}@media(max-width:850px){.section-heading,.timeline-row,.game-overview{grid-template-columns:1fr}.timeline:before,.timeline-row:after{display:none}.timeline-row,.timeline-row:nth-child(even) .timeline-image,.timeline-row:nth-child(even) .timeline-copy{order:initial}.timeline-row{gap:26px;margin-bottom:68px}.challenge-grid,.mechanism-grid{grid-template-columns:1fr}.nav-links{display:none}.hero-card:after{background:linear-gradient(0deg,rgba(4,7,13,.96),rgba(4,7,13,.25))}.hero-content{padding-top:260px}}@media(max-width:540px){.container{width:min(100% - 24px,1160px)}section{padding:80px 0}.hero{padding-top:96px}.hero-card{min-height:78vh}.hero-content{padding:28px;padding-top:260px}}
   </style>
 </head>
 <body>
@@ -31,7 +67,7 @@
     <div class="container nav-inner">
       <a class="logo" href="../index.html">VP</a>
       <div class="nav-links">
-        <a href="#challenge">Challenge</a>
+        <a href="#game">The Game</a>
         <a href="#development">Development</a>
         <a href="#final">Final Robot</a>
         <a href="#gallery">Gallery</a>
@@ -51,22 +87,67 @@
           <div class="hero-tags">
             <span class="tag">Mechanical Design</span><span class="tag">Rapid Prototyping</span><span class="tag">Competition Robotics</span><span class="tag">Testing</span><span class="tag">Iteration</span>
           </div>
-          <a class="scroll-cue" href="#challenge">Explore the project ↓</a>
+          <a class="scroll-cue" href="#game">Explore the project ↓</a>
         </div>
       </div>
     </header>
 
-    <section id="challenge">
+    <section id="game">
       <div class="container">
         <div class="section-heading reveal">
-          <div><p class="section-label">01 · The Challenge</p><h2>Designing for a changing match</h2></div>
-          <p class="lead">High Stakes required a robot that could acquire game objects quickly, control them through the robot, score consistently, and remain durable through repeated matches. The design also needed to support autonomous routines and continued mechanism changes throughout the season.</p>
+          <div>
+            <p class="section-label">01 · The Game</p>
+            <h2>Understanding High Stakes</h2>
+          </div>
+
+          <p class="lead">
+            High Stakes challenged teams to collect rings, place them onto mobile
+            goals, control valuable scoring objects, and finish the match with a
+            successful climb. A strong robot needed fast intake, controlled ring
+            movement, reliable scoring, durable structure, and enough flexibility
+            to adapt to offensive and defensive match situations.
+          </p>
         </div>
+
+        <div class="game-overview reveal">
+          <img
+            src="../assets/images/high stakes field.jpg"
+            alt="VEX High Stakes competition field"
+          >
+
+          <div class="game-overview-copy">
+            <p class="section-label">Field Overview</p>
+            <h3>Turn the rules into engineering requirements</h3>
+
+            <p>
+              The field included red and blue rings, mobile goals, wall stakes,
+              and a central climbing structure. Robots had to move efficiently
+              around the field, acquire rings from different locations, score
+              onto multiple targets, and preserve enough time for endgame strategy.
+            </p>
+          </div>
+        </div>
+
         <div class="challenge-grid">
-          <div class="challenge-card reveal"><strong>Fast acquisition</strong><span>Collect game objects without perfect alignment.</span></div>
-          <div class="challenge-card reveal"><strong>Controlled scoring</strong><span>Keep objects stable through every mechanism.</span></div>
-          <div class="challenge-card reveal"><strong>Reliable structure</strong><span>Survive impacts and tournament use.</span></div>
-          <div class="challenge-card reveal"><strong>Continuous iteration</strong><span>Adapt the design as strategy changed.</span></div>
+          <div class="challenge-card reveal">
+            <strong>Score Rings</strong>
+            <span>Collect and place rings onto mobile goals and other scoring targets.</span>
+          </div>
+
+          <div class="challenge-card reveal">
+            <strong>Control Mobile Goals</strong>
+            <span>Move and protect goals while creating better scoring positions.</span>
+          </div>
+
+          <div class="challenge-card reveal">
+            <strong>Endgame Climb</strong>
+            <span>Reach the central structure for valuable late-match points.</span>
+          </div>
+
+          <div class="challenge-card reveal">
+            <strong>Alliance Strategy</strong>
+            <span>Coordinate roles, field control, and scoring priorities with a partner.</span>
+          </div>
         </div>
       </div>
     </section>
